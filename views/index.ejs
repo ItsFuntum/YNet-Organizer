@@ -68,6 +68,11 @@
       align-items: center;
     }
 
+    .room-title-prefix {
+      font-weight: normal;
+      color: gray;
+    }
+
     .room-actions {
       display: flex;
       align-items: center;
@@ -112,7 +117,7 @@
     <% rooms.forEach((room, index) => { %>
       <div class="room-container" id="room-<%= index %>">
         <div class="room-title">
-          <h2>Room <%= index + 1 %>: <%= room.name %></h2>
+          <h2> <div class="room-title-prefix"><%= index + 1 %>.</div> <%= room.name %></h2>
           <div class="room-actions">
             <p>
               Players:
