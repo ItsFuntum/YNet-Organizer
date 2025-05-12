@@ -105,7 +105,9 @@
 </head>
 
 <body>
-  <h1 style="font-size: 64px; font-style: oblique;">Rooms</h1>
+
+  <button id="toggle-button">Show All Rooms</button>
+
   <ul>
     <% rooms.forEach((room, index) => { %>
       <div class="room-container" id="room-<%= index %>">
