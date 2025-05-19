@@ -13,15 +13,17 @@ app.use(express.json());
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
-// Load settings.json on server startup
 const settingsPath = path.join(__dirname, 'settings.json');
 let settings = {};
 
+// Attempt to load settings.json on server startup
 try {
-  const data = fs.readFileSync(settingsPath, 'utf-8');
-  settings = JSON.parse(data);
+    const data = fs.readFileSync(settingsPath, 'utf-8');
+    settings = JSON.parse(data);
 } catch (err) {
-  console.error('Error loading settings.json:', err);
+    console.error('Error loading settings.json, perphaps it does not exist yet. Attempting creation of file...');
+    settings = {}; // or provide default settings as needed
+    fs.writeFileSync(settingsPath, JSON.stringify(settings, null, 2), 'utf-8');
 }
 
 // Route to save settings (for when the user updates settings)
