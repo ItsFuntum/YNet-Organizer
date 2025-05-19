@@ -21,8 +21,9 @@
       <h2>Configuration</h2>
       
       <form>
-      <input type="checkbox" id="roomsOnStartup" name="roomsOnStartup" value="true">
-      <label for="roomsOnStartup">Show All Rooms on Startup</label>
+        <input type="checkbox" id="roomsOnStartup" name="roomsOnStartup"
+        <%= settings.roomsOnStartup ? 'checked' : '' %>>
+        <label for="roomsOnStartup"> Show All Rooms on Startup</label>
       </form>
 
       <button onclick="saveToServer()">Save Settings</button>
