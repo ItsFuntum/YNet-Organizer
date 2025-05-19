@@ -55,9 +55,9 @@
         <p><strong>Address:</strong> <%= room.address %></p>
         <p><strong>Port:</strong> <%= room.port %></p>
         <p><strong>Description:</strong> <%= room.description %></p>
-        <p><strong>Players:</strong></p>
 
         <% if (room.players && room.players.length > 0) { %>
+        <p><strong>Players:</strong></p>
         <ol class="player-list">
           <% room.players.forEach((player) => { %>
           <li>
@@ -66,8 +66,6 @@
           </li>
           <% }); %>
         </ol>
-        <% } else { %>
-        <p class="no-players">No players connected.</p>
         <% } %>
 
         <p><strong>Password-protected:</strong> <%= room.hasPassword ? 'Yes' : 'No' %></p>
