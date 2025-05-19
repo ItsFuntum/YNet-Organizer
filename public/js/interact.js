@@ -86,7 +86,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-
 // Toggle individual room content
 function toggleRoomContent(roomId) {
   const room = document.getElementById(roomId);

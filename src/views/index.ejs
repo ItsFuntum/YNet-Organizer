@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>YNet Organizer</title>
-  <link rel="stylesheet" type ="text/css" href ="/css/styles.css">
+  <link rel="stylesheet" type="text/css" href="/css/styles.css">
 </head>
 
 <body>
@@ -19,10 +19,9 @@
     <div class="popup-overlay" onclick="togglePopup('close')"></div>
     <div class="popup-content">
       <h2>Configuration</h2>
-      
+
       <form>
-        <input type="checkbox" id="roomsOnStartup" name="roomsOnStartup"
-        <%= settings.roomsOnStartup ? 'checked' : '' %>>
+        <input type="checkbox" id="roomsOnStartup" name="roomsOnStartup" <%= settings.roomsOnStartup ? 'checked' : '' %>>
         <label for="roomsOnStartup"> Show All Rooms on Startup</label>
       </form>
 
@@ -33,47 +32,47 @@
 
   <ul>
     <% rooms.forEach((room, index) => { %>
-      <div class="room-container" id="room-<%= index %>">
-        <div class="room-title">
-          <h2><span class="room-title-prefix"><%= index + 1 %>.</span> <%= room.name %></h2>
-          <div class="room-actions">
-            <p>
-              Players:
-              <% if (room.players && room.players.length > 0) { %>
-                <span class="player-count">
-                  <%= room.players.length %>/<%= room.maxPlayers %>
-                </span>
-              <% } else { %>
-                <span class="no-players">
-                  0/<%= room.maxPlayers %>
-                </span>
-              <% } %>
-            </p>
-            <button class="room-toggle" onclick="toggleRoomContent('room-<%= index %>')" aria-label="Toggle room details">Show Room</button>
-          </div>
-        </div>
-        <div class="room-content hidden">
-          <p><strong>Address:</strong> <%= room.address %></p>
-          <p><strong>Port:</strong> <%= room.port %></p>
-          <p><strong>Description:</strong> <%= room.description %></p>
-          <p><strong>Players:</strong></p>
-
-          <% if (room.players && room.players.length > 0) { %>
-            <ol class="player-list">
-              <% room.players.forEach((player) => { %>
-                <li>
-                  <%= player.nickname || "Unknown Player" %>
-                  <span>(<%= player.gameName %>)</span>
-                </li>
-              <% }); %>
-            </ol>
-          <% } else { %>
-            <p class="no-players">No players connected.</p>
-          <% } %>
-
-          <p><strong>Has Password:</strong> <%= room.hasPassword ? 'Yes' : 'No' %></p>
+    <div class="room-container" id="room-<%= index %>">
+      <div class="room-title">
+        <h2><span class="room-title-prefix"><%= index + 1 %>.</span> <%= room.name %></h2>
+        <div class="room-actions">
+          <p>
+            Players:
+            <% if (room.players && room.players.length > 0) { %>
+            <span class="player-count">
+              <%= room.players.length %>/<%= room.maxPlayers %>
+            </span>
+            <% } else { %>
+            <span class="no-players">
+              0/<%= room.maxPlayers %>
+            </span>
+            <% } %>
+          </p>
+          <button class="room-toggle" onclick="toggleRoomContent('room-<%= index %>')" aria-label="Toggle room details">Show Room</button>
         </div>
       </div>
+      <div class="room-content hidden">
+        <p><strong>Address:</strong> <%= room.address %></p>
+        <p><strong>Port:</strong> <%= room.port %></p>
+        <p><strong>Description:</strong> <%= room.description %></p>
+        <p><strong>Players:</strong></p>
+
+        <% if (room.players && room.players.length > 0) { %>
+        <ol class="player-list">
+          <% room.players.forEach((player) => { %>
+          <li>
+            <%= player.nickname || "Unknown Player" %>
+            <span>(<%= player.gameName %>)</span>
+          </li>
+          <% }); %>
+        </ol>
+        <% } else { %>
+        <p class="no-players">No players connected.</p>
+        <% } %>
+
+        <p><strong>Has Password:</strong> <%= room.hasPassword ? 'Yes' : 'No' %></p>
+      </div>
+    </div>
     <% }); %>
   </ul>
   <script>
